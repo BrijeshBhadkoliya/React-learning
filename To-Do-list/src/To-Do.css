@@ -1,0 +1,48 @@
+ body {
+     background-color: rgb(2, 157, 204);
+ }
+
+ h1 {
+     font-size: 80px;
+     margin: 35px 0px 20px 0px;
+     font-weight: 700;
+     text-align: center;
+     color: rgb(238, 251, 255);
+     /* color: aqua; */
+ }
+
+ .box {
+     width: 700px;
+     height: 500px;
+     background-color: #fff;
+     border-radius: 15px;
+     padding: 50px 20px;
+ }
+
+ .heit {
+     height: 70vh;
+ }
+
+ .taskD,
+ .timeD {
+     margin-right: 20px;
+ }
+ .data {
+    margin-top: 30px;
+ }
+ .data input {
+     border-radius: 7px;
+     border: 1px solid #fff;
+     background: rgb(2, 157, 204);
+     height: 35px;
+     width: 200px;
+     padding: 15px;
+     color: #fff;
+ }
+
+ ::placeholder {
+     color: #fff;
+ }
+ .datas{
+    margin: 50px;
+ }
