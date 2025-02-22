@@ -1,0 +1,39 @@
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body{
+    background: #3d3d3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    height: 80vh;
+}
+div button{
+background: #fff;
+height: 40px;
+width: 40px;
+border-radius: 5px;
+font-size: 30px;
+margin: 0 18px;
+}
+h1{
+    font-size: 48px;
+}
+h2{
+    font-size: 30px;
+}
+.st-sp{
+    background: #fff;
+    height: 40px;
+    width: 80px;
+    border-radius: 5px;
+    font-size: 30px;
+    margin: 0 18px; 
+}
+.st-sp-m{
+    margin: 4px  90px;
+}

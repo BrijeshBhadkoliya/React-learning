@@ -1,27 +1,34 @@
-import { useState } from 'react'
-
+import { useState } from "react";
+import "./coustom.css";
 
 function App() {
+  const [count, setCount] = useState(4);
 
-  const [count, setCount] = useState(4)
+  function addnum() {
+    if (count < 12) {
+      setCount(count + 1);
+    }
+  }
 
-   function addnum(){
-    setCount(count+1)
-   }
+  const removenum = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
 
-   const removenum = () => {
-    setCount(count-1)
-   }
   return (
     <>
-      <h1>Counter With React</h1>  
-      <br/>
-      <button onClick={addnum()}>+</button>&nbsp;&nbsp;
-      <h2>Counter :- {count}</h2>
-      &nbsp;&nbsp; <button onClick={removenum()}>-</button>
-
+      <div>
+        <h1>Counter With React</h1>
+        <br />
+        <div className="counter">
+          <button onClick={addnum}>+</button>
+          <h2>Counter :- {count}</h2>
+          <button onClick={removenum}>-</button>
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
