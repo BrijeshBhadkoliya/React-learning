@@ -1,10 +1,7 @@
- 
-
-
-function App() {
+ function App() {
   return (
     <>
-     <h1>hellow react</h1>
+     <h1>hello react</h1>
     </>
   )
 }
