@@ -1,39 +1,17 @@
-import Cards from "./Cards";
-import { useEffect, useState } from "react";
- function App() {
-  const [data, setData] = useState([]);
- 
-   useEffect(()=> {
-    const fetchData = () => {
-         fetch('http://localhost:3000/dataapi')
-         .then((response) => response.json())
-          .then((data) => setData(data));
-        };
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Form from "./Components/AddCard";
+import ViewCard from "./Components/ViewCard";
 
-    fetchData();
-   }, [])
-
-  
-  // let celement =[]
-
-  // dataArr.forEach((val, i ) => (
-  //   celement.push(<Cards key={i}
-  //     CardData={val}
-  //   />)
-  // ))
-
+function App() {
   return (
-    <>
-      <div className="container">
-        <h1 className="my-9">Cards pages</h1>
-        <div className="flex flex-wrap">
-          {data.map((item, index) => (
-            <Cards key={index} CardData={item} />
-          ))}
-          {/* {celement} */}
-        </div>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/addcard" element={<Form />} />
+        <Route path="/viewcard" element={<ViewCard />} />
+        {/* Optional: redirect root path to /viewcard */}
+        <Route path="*" element={<ViewCard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
