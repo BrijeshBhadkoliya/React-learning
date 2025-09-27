@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./Boutton";
-import { useState } from "react";
+import { useState ,useRef } from "react";
 
 function Form() {
   const navigate = useNavigate();
+  const fileInputRef = useRef(null);
+
   const [form, setForm] = useState({
     name: '',
     role: '',
@@ -35,6 +37,7 @@ function Form() {
     formData.append("description", form.description);
     formData.append("img", form.img); 
 
+    console.log(formData)
     try {
       const res = await fetch("http://localhost:3000/addcard", {
         method: "POST",
@@ -51,14 +54,14 @@ function Form() {
         description: '',
         img: null,
       });
-
+      fileInputRef.current.value = null;
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="min-h-screen flex items-center justify-center px-4 text-black">
       <div className="bg-white p-8 rounded-2xl shadow-lg w-[450px]">
         <h2 className="text-2xl font-semibold text-center text-blue-700 mb-6">Add New Card</h2>
         <form className="space-y-5" onSubmit={sendData} encType="multipart/form-data">
@@ -70,7 +73,7 @@ function Form() {
               name="name"
               value={form.name}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="John Doe"
               required
             />
@@ -84,7 +87,7 @@ function Form() {
               name="role"
               value={form.role}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Ex .Back-end Developer"
               required
             />
@@ -98,7 +101,7 @@ function Form() {
               name="description"
               value={form.description}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-lg px-4 bg-white py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -110,7 +113,8 @@ function Form() {
               id="img"
               name="img"
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ref={fileInputRef}
+              className="w-full border border-gray-300 rounded-lg px-4 bg-white py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -119,9 +123,9 @@ function Form() {
             <input
               id="remember"
               type="checkbox"
-              className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+              className="h-4 w-4 text-blue-600 border-gray-300 bg-white rounded focus:ring-blue-500"
             />
-            <label htmlFor="remember" className="ml-2 text-sm text-gray-600">Remember me</label>
+            <label htmlFor="remember" className="ml-2 text-sm bg-white text-gray-600">Remember me</label>
           </div>
 
           <button

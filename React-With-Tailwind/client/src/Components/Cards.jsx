@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Cards({ CardData, onDelete }) {
+function Cards({ CardData, onDelete , onUpdate }) {
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
@@ -23,13 +23,13 @@ function Cards({ CardData, onDelete }) {
                 onMouseLeave={() => setShowDropdown(false)}
               >
                 <button
-                  onClick={() => onDelete(CardData?._id)}
+                  onClick={() => onDelete(CardData?.id)}
                   className="block w-full text-left px-4 py-2 text-sm text-red-600 bg-gray-100 hover:bg-gray-200"
                 >
                   Delete
                 </button>
                 <button
-                  onClick={() => onUp(CardData?._id)}
+                  onClick={() => onUpdate(CardData)}
                   className="block w-full text-left px-4 py-2 text-sm text-red-600 bg-gray-100 hover:bg-gray-200"
                 >
                   Edit
